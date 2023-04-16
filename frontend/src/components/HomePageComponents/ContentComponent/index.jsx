@@ -4,7 +4,7 @@ import { About } from './AboutComponent';
 import { HowItWorks } from './HowItWorksComponent';
 import { Promo } from './PromoComponent';
 
-export const MainContent = () => {
+export const Content = () => {
   return (
     <header className="header">
       <Subjects />

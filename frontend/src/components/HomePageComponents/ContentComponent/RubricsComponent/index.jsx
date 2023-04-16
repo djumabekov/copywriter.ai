@@ -14,7 +14,7 @@ export const Rubrics = () => {
             Создавай вовлекающий контент для своих соцсетей за считанные минуты
           </div>
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -29,7 +29,7 @@ export const Rubrics = () => {
             Рекламные объявления в социальных сетях, подходят для таргетированной рекламы
           </div>
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -44,7 +44,7 @@ export const Rubrics = () => {
             Mощный инструмент для продвижения вашего бренда и привлечения новых клиентов
           </div>
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -57,7 +57,7 @@ export const Rubrics = () => {
           </div>
           <div className="descr">Краткие и информативные тексты с призывом к действию</div>
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -73,7 +73,7 @@ export const Rubrics = () => {
             конкретной продукции или услуги
           </div>
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -88,7 +88,7 @@ export const Rubrics = () => {
             Оптимизиуруй сайт для поисковых систем и привлеки свежий трафик
           </div>
           <div className="link">
-            <Link to="/projects" className="link-name fg-white">
+            <Link to="/rubrics/post-for-blog" className="link-name fg-white">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -103,7 +103,7 @@ export const Rubrics = () => {
             Создай описание продукта, которое попадет в цель и обеспечит высокую конверсию
           </div>
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -119,7 +119,7 @@ export const Rubrics = () => {
             написать пост
           </div>
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -134,7 +134,7 @@ export const Rubrics = () => {
             Определи уникальность своего продукта или услуги и отстройся от конкурентов
           </div>
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -149,7 +149,7 @@ export const Rubrics = () => {
             Узнай, кому нужен твой продукт, найди истинные боли и потребности каждого сегмента ЦА
           </div>
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать бесплатно
             </Link>
             <div className="arrow-up-blue-img"></div>
@@ -163,7 +163,7 @@ export const Rubrics = () => {
           <div className="descr">Cпроси меня что угодно</div>
 
           <div className="link">
-            <Link to="/projects" className="link-name">
+            <Link to="/rubrics/post-for-blog" className="link-name">
               Попробовать
             </Link>
             <div className="arrow-left-white-img"></div>

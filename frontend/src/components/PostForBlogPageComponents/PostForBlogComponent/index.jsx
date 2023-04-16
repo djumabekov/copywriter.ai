@@ -1,8 +1,9 @@
 
 import { useState } from 'react';
 import axios from 'axios';
+import { SpinLoader } from '../LoaderComponent';
 
-export const ProjectsPage = () => {
+export const PostForBlog = () => {
 	const initialMessages = [
 		{
 		  who: "user",
@@ -10,6 +11,7 @@ export const ProjectsPage = () => {
 		},
 	  ];
 
+	const[isLoader, setIsLoader] = useState(false)
 	const [theme, setTheme] = useState('');
 	const [company, setCompany] = useState('');
 	const [context, setContext] = useState('');
@@ -37,6 +39,7 @@ export const ProjectsPage = () => {
 		setTone('')
 	}
 	const generationResult = (param) => {
+		setIsLoader(true)
 		const message = param === 'regenerate' ? additionalReq : createMessage()
 		console.log(message)
 		const newMessages = [
@@ -47,12 +50,13 @@ export const ProjectsPage = () => {
 	  axios
 		.post(`http://localhost:8000/chat`, { newMessages })
 		.then((res) => {
-		  console.log(res.data);
-		  setResponse(res.data);
-				const newMessages = [
-			...messages,
-			{ message: res.data.trim(), who: "bot" },
-	  	];
+			setIsLoader(false)
+			console.log(res.data);
+			setResponse(res.data);
+			const newMessages = [
+				...messages,
+				{ message: res.data.trim(), who: "bot" },
+			];
 	  setMessages(newMessages);
 		})
 		.catch((err) => {
@@ -141,8 +145,12 @@ export const ProjectsPage = () => {
 				</div>
 			</div>
 			<div className='result-form-show-result'>
+			{
+				isLoader ? 
+				<SpinLoader/> :
 				<textarea value={response} className='result-form-textarea' rows="20" cols="75" readOnly placeholder='Текст о том, что тут будет происходить магия генерации'/>
-			</div>
+			}
+				</div>
 			<div className='result-form-show-result'>
 			<div className='input-block'>
 				<div className='input-block-label'>
@@ -152,7 +160,7 @@ export const ProjectsPage = () => {
 				<input value={additionalReq} onChange={(e) => setAdditionalReq(e.target.value)} type='text' className='input-text' placeholder='А теперь добавь туда немного романтики...'/>
 				<div className='control-bar'>
 					<input onClick={()=>setAdditionalReq('')} type='button' className='clear-btn' value='Очистить'/>
-					<input onClick={()=>generationResult('regenerate')} type='button' className='generate-btn' value='Регенерация'/>
+					<input disabled={!response} onClick={()=>generationResult('regenerate')} type='button' className='generate-btn' value='Регенерация'/>
 				</div>
 			</div>
 		</div>

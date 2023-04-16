@@ -1,10 +1,10 @@
 
-import { MainContent } from '../../components/MainContentComponent';
+import { Content } from '../../components/HomePageComponents/ContentComponent';
 
 export const HomePage = () => {
   return (
     <>
-      <MainContent />
+      <Content />
     </>
   );
 };

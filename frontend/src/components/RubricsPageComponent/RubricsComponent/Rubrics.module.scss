@@ -1,0 +1,73 @@
+
+.rubrics{
+	margin: 50px 30px;
+}
+
+.rubric_link{
+	text-decoration: none;
+}
+.rubrics_grid{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	column-gap: 10px;
+	row-gap: 10px;
+}
+
+.grid_block{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 21.6954px 35.5804px;
+	gap: 33.84px;
+	width: 200px;
+	height: 200px;
+	background: #FFFFFF;
+	border: 0.769856px solid #1723C7;
+}
+
+.grid_block_edit_icon{
+	width: 24px;
+	height: 24px;
+}
+
+
+.grid_block_title{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 8.08px;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 16.9368px;
+	line-height: 129.99%;
+	text-align: center;
+	text-transform: uppercase;
+	color: #1723C7;
+}
+
+.grid_block_text{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15.3971px;
+	line-height: 18px;
+	color: #000000;
+}
+
+.pro_bg{
+	background: #1723C7;
+	background-size: cover;
+    background-image: url(../RubricsComponent/assets/images/pro_bg.png);
+	border: none;
+}
+
+.pro_icon{
+	width: 60px;
+}
+
+.pro_color{
+	color:#FFFFFF;
+	width:100px
+}

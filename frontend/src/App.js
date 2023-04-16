@@ -1,16 +1,23 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
-import { Layout } from './components/LayoutComponent';
-import { ProjectsPage } from './pages/ProjectsPage';
+import { Layout as LayoutHomePage } from './components/HomePageComponents/LayoutComponent';
+import { Layout as LayoutOtherPage } from './components/LayoutComponents';
+import { PostForBlogPage } from './pages/PostForBlogPage';
+import { RubricsPage } from './pages/RubricsPage';
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<LayoutHomePage />}>
             <Route index element={<HomePage />} />
-            <Route path="projects" element={<ProjectsPage />} />
+          </Route>
+          <Route path="/" element={<LayoutOtherPage />}>
+            <Route path="/rubrics/post-for-blog" element={<PostForBlogPage />} />
+          </Route>
+          <Route path="/" element={<LayoutOtherPage />}>
+            <Route path="rubrics" element={<RubricsPage />} />
           </Route>
           <Route path="*" element={<>404</>} />
         </Routes>

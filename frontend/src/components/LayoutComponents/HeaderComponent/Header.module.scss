@@ -1,0 +1,34 @@
+.header{
+	display: flex;
+	justify-content: flex-end;
+	background: #FFFFFF;
+	border-bottom: 1px solid #1723C7;
+	backdrop-filter: blur(5px);
+	height: 88px;
+}
+
+.help_btn{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+	width: 100px;
+	background: #F8F8F8;
+	margin: auto 0;
+}
+
+.help_btn_text{
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 19px;
+	color: #1723C7;
+}
+
+.help_btn_ico{
+	width: 24px;
+	height: 24px;
+	background-size: cover;
+	background-image: url(../../../../public/assets/element-img/ProjectsPageElementImg/helpIco.png);
+}
