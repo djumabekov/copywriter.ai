@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../../../axios.js';
 import { SpinLoader } from '../LoaderComponent';
 
 export const PostForBlog = () => {
@@ -28,7 +28,7 @@ export const PostForBlog = () => {
 		для компании "${company}"
 		в контексте ${context} 
 		с целью ${purpose} 
-		в ${tone} тональности`
+		в ${tone} тональности` 
 	}
 
 	const clearFields = () => {

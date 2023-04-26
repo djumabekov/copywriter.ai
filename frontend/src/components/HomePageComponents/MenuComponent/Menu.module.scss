@@ -1,0 +1,123 @@
+
+.menu{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	width: 548px;
+	height: 1117px;
+	background: #1723C7;
+	align-self: flex-end;
+}
+
+.menu_top{
+	display: flex;
+}
+
+.menu_logo{
+	width: 42px;
+	height: 42px;
+	background-size: cover;
+	margin: 10% 0 0 10%;
+    // background-image: url(../public/assets/element-img/logo-blue.png);
+}
+
+.menu_close_btn{
+	width: 26px;
+	height: 26px;
+	background-size: cover;
+	margin: 10% 0 0 70%;
+    // background-image: url(../public/assets/element-img/closeX.png);
+}
+
+.menu_links{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0px;
+	width: 165.03px;
+	height: 313.88px;
+	margin: 10% 0 0 10%;
+
+}
+
+.menu_link{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 25.9893px;
+	line-height: 30px;
+	color: #FFFFFF;
+	margin-top: 20%;
+	text-decoration: none;
+}
+
+.menu_langs_btn{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 13.6648px 22.0739px;
+	width: 102px;
+	height: 25px;
+	background: #FFFFFF;
+	border: 2.10227px solid #1723C7;
+	margin: 10% 0 0 10%;
+}
+
+.menu_langs_btn_text{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22.8154px;
+	line-height: 26px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #1723C7;
+}
+
+.menu_btn{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 13px 21px;
+	background: #FFFFFF;
+
+}
+
+.menu_btn_name{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21.7054px;
+	line-height: 25px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #1723C7;
+}
+
+.menu_btn_square{
+	width: 25px;
+	height: 25px;
+}
+
+.menu_btn_img{
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+    // background-image: url(../public/assets/element-img/arrowUpBlue.png);
+	border: none;
+}
+
+.menu_enter_btn_width{
+    width: 100px;
+	margin: 50% 0 0 10%;
+}
+
+.menu_free_consult_btn_width{
+    width: 320px;
+	margin: 5% 0 0 10%;
+}
