@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu } from "../../MenuComponent";
 import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
@@ -10,7 +10,10 @@ export const Nav = () => {
 
   const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
-  const user = useSelector(selectUser);
+  
+  const userData = useSelector(state=>state.auth.data);
+
+
   const onClickLogout = () => {
     if(window.confirm('Вы действительно хотите выйти?')){
       dispatch(logout());
@@ -62,7 +65,7 @@ export const Nav = () => {
         </>
         ):(
           <>
-            <span>Привет, {user.userData.fullName}! </span>
+            <span>Привет, {userData.fullName}! </span>
             <div className="enter-btn">
               <span onClick={onClickLogout} className="enter-btn-name">Выйти</span>
               <div className="enter-btn-square">
