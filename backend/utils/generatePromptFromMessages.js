@@ -1,5 +1,5 @@
-const botName = 'AI';
-const userName = 'User';
+const botName = 'assistant';
+const userName = 'user';
 
 export const generatePromptFromMessages = (messages) => {
   let prompt = '';

@@ -1,0 +1,149 @@
+
+
+
+
+
+
+.save_btn{
+	width: 232px;
+	height: 48px;
+	background: #F8F8F8;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 23px;
+	text-align: center;
+	color: #1e8800;
+}
+
+.result_form{
+	display: flex;
+	flex-direction: column;
+	padding: 10px 14px 10px 2px;
+	background-color: #F8F8F8;
+}
+
+.result_form_bar{
+	width: 681px;
+	height: 65px;
+	border-bottom: 1px solid #D1D1D1;
+	backdrop-filter: blur(5px);
+	padding: 0px 0px 0px 20px;
+}
+
+.result_form_bar_frame{
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	padding: 0px;
+	gap: 24px;
+}
+
+.result_form_bar_history_btn{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 10px 14px 10px 2px;
+	gap: 14px;
+	height: 43px;
+}
+
+.result_form_bar_history_title{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 23px;
+	text-align: center;
+	text-transform: capitalize;
+	color: #5C5C5C
+}
+
+.history_img{
+	width: 24px;
+	height: 24px;
+	color: #1723C7;
+	background-size: cover;
+	// background-image: url(../public/assets/element-img/history.png);
+}
+
+.result_form_bar_saved_btn{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 10px 20px;
+	gap: 14px;
+	width: 170px;
+	height: 43px;
+}
+
+.result_form_bar_saved_title{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 23px;
+	text-align: center;
+	text-transform: capitalize;
+	color: #1723C7;
+}
+
+.saved_img{
+	width: 24px;
+	height: 24px;
+	color: #1723C7;
+	background-size: cover;
+	// background-image: url(../public/assets/element-img/saved.png);
+}
+.result_form_show_result{
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+}
+
+.result_form_textarea{
+	display: flex;
+	flex-direction: column;
+	width:100%;
+	overflow: auto;
+	padding: 13.129px 26.2581px;
+	gap: 13.13px;
+	border: 1.3129px solid #D1D1D1;
+	resize: none;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 25px;
+	color: #5C5C5C
+}
+
+.paragraph_block{
+	border: 1px solid #D1D1D1;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+
+
+.control_btn_elements{
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	width: 80%;
+	height: 30px;
+	margin: 20px 0px 0px 20px;
+}
+
+.control_element{
+	display: flex;
+	width: 160px;
+	margin: 20px;
+	justify-content: space-between;
+}
+
+.btn_cursor_pointer{
+	cursor: pointer;
+}

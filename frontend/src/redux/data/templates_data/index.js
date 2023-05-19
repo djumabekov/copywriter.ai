@@ -1,0 +1,68 @@
+import { ICONS } from './assets';
+
+export const TEMPLATES = [
+  {
+    icon: ICONS.edit.path,
+    alter: ICONS.edit.alter,
+    title: 'Написать план блога',
+    text: 'Начните свой блог с описания темы, исследований и ресурсов',
+    link: 'post_for_blog',
+    template: 'plan_for_blog',
+  },
+  {
+    icon: ICONS.smile.path,
+    alter: ICONS.smile.alter,
+    title: 'Биография в социальных сетях',
+    text: 'Создайте короткую биографию, которая заинтересует вашу аудиторию!',
+    link: 'adv_in_sn',
+    template: 'sm_bio',
+  },
+  {
+    icon: ICONS.sms.path,
+    alter: ICONS.sms.alter,
+    title: 'Короткая история',
+    text: 'Нужно вдохновение для сюжета? Напишите историю, которая увлечет ваших читателей!',
+    link: 'storytelling',
+    template: 'short_story',
+  },
+  {
+    icon: ICONS.email.path,
+    alter: ICONS.email.alter,
+    title: 'Электронная почта для продвижения мероприятия',
+    text: 'Предстоит мероприятие? Расскажите об этом своим потенциальным клиентам по электронной почте!',
+    link: 'email_newsletters',
+    template: 'event_prom_email',
+  },
+  {
+    icon: ICONS.bag.path,
+    alter: ICONS.bag.alter,
+    title: 'Выделите приемущества продукта или услуги',
+    text: 'Расскажите своим клиентам, как ваш продукт может им помочь!',
+    link: 'email_newsletters',
+    template: 'highlight_product',
+  },
+  {
+    icon: ICONS.star.path,
+    alter: ICONS.star.alter,
+    title: 'Слова песни',
+    text: 'Проведите мозговой штурм и напишите запоминающиеся тексты песен!',
+    link: 'email_newsletters',
+    template: 'song_lyrics',
+  },
+  {
+    icon: ICONS.list.path,
+    alter: ICONS.list.alter,
+    title: 'Целевая страница продаж',
+    text: 'Скопируйте, чтобы привлечь трафик на свой сайт и привлечь потенциальных клиентов.',
+    link: 'landing_text',
+    template: 'sales_landing',
+  },
+  {
+    icon: ICONS.user.path,
+    alter: ICONS.user.alter,
+    title: 'Создайте предвидение / запустите новый продукт',
+    text: 'Создайте пост, чтобы создать предвкушение предстоящего события или запуска нового продукта.',
+    link: 'post_for_blog',
+    template: 'launch_new_product',
+  },
+];

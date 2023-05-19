@@ -1,0 +1,8 @@
+export const HISTORY_ICON = require('./images/history.png')
+export const SAVED_ICON = require('./images/saved.png')
+export const SAVE_ICON = require('./images/save.png')
+export const X_ICON = require('./images/x.png')
+export const SAVEALL_ICON = require('./images/saveall.png')
+export const COPY_ICON = require('./images/copy.png')
+export const COPYPARAG_ICON = require('./images/copy_parag.png')
+export const POST_ICON = require('./images/post.png')

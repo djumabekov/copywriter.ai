@@ -1,29 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Menu } from "../../MenuComponent";
 import { useNavigate } from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux';
-import { selectIsAuth, logout, selectUser } from "../../../../redux/slices/auth";
+import { fetchAuthMe, selectIsAuth, logout} from "../../../../redux/slices/auth";
+import { selectIsShowMenu, showMenu } from "../../../../redux/slices/ui";
+import styles from './Nav.module.scss';
 
 export const Nav = () => {
-  const [isMenuVisible, setIsMenuVisible] = useState(false)
+
+	const isShowMenu = useSelector(selectIsShowMenu);
+
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
   const isAuth = useSelector(selectIsAuth);
+  let userName = window.localStorage.getItem('userName');
   
-  const userData = useSelector(state=>state.auth.data);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAuthMe());
+  }, []);
+
 
 
   const onClickLogout = () => {
     if(window.confirm('Вы действительно хотите выйти?')){
       dispatch(logout());
       window.localStorage.removeItem('token');
+      window.localStorage.removeItem('userName');
     }
   };
 
 
   const handleShowMenuBtnClick = () => {
-    setIsMenuVisible(!isMenuVisible)
+    dispatch(showMenu(!isShowMenu))
+    
   }
 
   const handleRegistrationBtnClick = () =>{
@@ -39,46 +49,49 @@ export const Nav = () => {
   }
   return (
     <>
-    <nav className="nav">
-      <div className="logo"></div>
-      <div className="nav-buttons">
-        <div className="free-consult-btn">
-          <span onClick={handleTryFreeBtn} className="free-consult-btn-name">Попробовать бесплатно</span>
-          <div className="free-consult-btn-square">
-            <div className="free-consult-btn-img"></div>
+    <nav className={styles.nav}>
+      <div className={styles.logo}></div>
+      <div className={styles.nav_buttons}>
+        <div className={styles.free_consult_btn}>
+          <span onClick={handleTryFreeBtn} className={styles.free_consult_btn_name}>Попробовать бесплатно</span>
+          <div className={styles.free_consult_btn_square}>
+            <div className={styles.free_consult_btn_img}></div>
           </div>
         </div>
         {!isAuth ? (
           <>
-        <div className="enter-btn">
-          <span onClick={handleRegistrationBtnClick} className="enter-btn-name">Регистрация</span>
-          <div className="enter-btn-square">
-            <div className="enter-btn-btn-img"></div>
+        <div className={styles.enter_btn}>
+          <span onClick={handleRegistrationBtnClick} className={styles.enter_btn_name}>Регистрация</span>
+          <div className={styles.enter_btn_square}>
+            <div className={styles.enter_btn_btn_img}></div>
           </div>
         </div>
-        <div className="enter-btn">
-          <span onClick={handleLoginBtnClick} className="enter-btn-name">Войти</span>
-          <div className="enter-btn-square">
-            <div className="enter-btn-btn-img"></div>
+        <div className={styles.enter_btn}>
+          <span onClick={handleLoginBtnClick} className={styles.enter_btn_name}>Войти</span>
+          <div className={styles.enter_btn_square}>
+            <div className={styles.enter_btn_btn_img}></div>
           </div>
         </div>
         </>
         ):(
           <>
-            <span>Привет, {userData.fullName}! </span>
-            <div className="enter-btn">
-              <span onClick={onClickLogout} className="enter-btn-name">Выйти</span>
-              <div className="enter-btn-square">
-                <div className="enter-btn-btn-img"></div>
+            <div className={styles.user_panel}>
+              <div className={styles.user_avatar}> {userName[0].toUpperCase() + "" + userName[0].toUpperCase()} </div>
+              <div className={styles.user_name}>Привет, {userName.length > 10 ? userName.substring(0, 10) + "..." : userName}!</div>
+            </div>
+            <div className={styles.enter_btn}>
+              <span onClick={onClickLogout} className={styles.enter_btn_name}>Выйти</span>
+              <div className={styles.enter_btn_square}>
+                <div className={styles.enter_btn_btn_img}></div>
               </div>
             </div>
           </>
         )}
 
-        <div onClick={handleShowMenuBtnClick} className="show-menu-btn"></div>
+        <div onClick={handleShowMenuBtnClick} className={styles.show_menu_btn}></div>
       </div>
     </nav>
-    {isMenuVisible && <Menu handleShowMenuBtnClick={handleShowMenuBtnClick}/>}
+    {isShowMenu && <Menu handleShowMenuBtnClick={handleShowMenuBtnClick}/>}
     </>
   );
 };

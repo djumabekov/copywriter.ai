@@ -1,0 +1,145 @@
+
+.nav{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px;
+	gap: 39px;
+	width: 1440px;
+	height: 129px;
+}
+
+.nav_buttons{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	
+}
+
+.free_consult_btn{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 13px 0px;
+	gap: 9px;
+
+	width: 352px;
+	height: 47px;
+
+	background: #FFFFFF;
+	border: 2px solid #1723C7;
+}
+
+.free_consult_btn_name{
+	width: 269px;
+	height: 25px;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21.7054px;
+	line-height: 25px;
+	display: flex;
+	align-items: center;
+	color: #1723C7;
+}
+
+.free_consult_btn_square{
+	width: 25px;
+	height: 25px;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+}
+
+.free_consult_btn_img{
+  height: 25px;
+  width: 25px;
+  background-size: cover;
+  background-image: url(./assets/images/arrowUpBlue.png);
+  border: none;
+}
+
+.enter_btn_square{
+	width: 25px;
+	height: 25px;
+}
+
+.enter_btn{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 13px 21px;
+	gap: 18px;
+	width: 165px;
+	height: 47px;
+	background: #1723C7;
+	margin-left: 30px;
+}
+
+.enter_btn_name{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 21.7054px;
+	line-height: 25px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	
+	color: #FFFFFF;
+}
+
+.enter_btn_btn_img{
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+    background-image: url(./assets/images/arrowUpWhite.png);
+	border: none;
+}
+.show_menu_btn{
+	width: 129px;
+	height: 129px;
+	flex: none;
+	order: 2;
+	flex-grow: 0;
+	background-size: cover;
+	background-image: url(./assets/images/menu.png);
+
+}
+
+.user_panel{
+	display: flex;
+	margin-left: 20px;
+}
+
+.user_avatar{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	background: #1723C7;
+	border-radius: 20px;
+	color:#FFFFFF;
+	text-align: center;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 23px;
+}
+
+.user_name{
+	display: flex;
+	align-items: center;
+	color:#1723C7;
+	text-align: center;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 23px;
+	margin-left: 10px;
+}
