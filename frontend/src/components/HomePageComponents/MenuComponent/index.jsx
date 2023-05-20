@@ -15,9 +15,9 @@ export const Menu = ({handleShowMenuBtnClick}) => {
 				handleShowMenuBtnClick()
 			}
 		  }
-		  document.addEventListener("mousedown", handleClickOutside);
+		  document.addEventListener("mouseover", handleClickOutside);
 		  return () => {
-			document.removeEventListener("mousedown", handleClickOutside);
+			document.removeEventListener("mouseover", handleClickOutside);
 		  };
 		}, [ref]);
 	  }
@@ -43,6 +43,7 @@ export const Menu = ({handleShowMenuBtnClick}) => {
 	  }
 	
 return (
+<div className={styles.menu_container}>
 <div ref={wrapperRef} className={styles.menu}>
 		<div className={styles.menu_top}>
 			<img src={MENU_LOGO_ICON} className={styles.menu_logo} alt='Logo'/>
@@ -81,6 +82,7 @@ return (
 				<div className={styles.menu_btn_img}></div>
 			</div>
 		</div>
+	</div>
 	</div>
 )
 }
