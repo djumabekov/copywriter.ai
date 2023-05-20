@@ -14,6 +14,7 @@
 }
 
 .grid_block{
+	transition: 1s;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -21,10 +22,25 @@
 	gap: 20px;
 	height: 200px;
 	background: #FFFFFF;
+	color: #1723C7;
 	border: 0.769856px solid #1723C7;
 }
 
+.grid_block:hover{
+	transition: 1s;
+	background: #1723C7;
+	color: #FFFFFF;
+	.grid_block_edit_icon{
+		filter: invert(1);
+	}
+
+	.grid_block_text{
+		filter: invert(1);
+	}
+}
+
 .grid_block_edit_icon{
+	transition: 1s;
 	width: 24px;
 	height: 24px;
 }
@@ -42,10 +58,10 @@
 	font-size: 16.9368px;
 	line-height: 129.99%;
 	text-transform: uppercase;
-	color: #1723C7;
 }
 
 .grid_block_text{
+	transition: 1s;
 	font-family: 'Helvetica';
 	font-style: normal;
 	font-weight: 400;

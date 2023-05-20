@@ -1,15 +1,22 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import axios from '../../../axios.js';
+import Loader from '../LoaderComponent';
 import styles from './SavedPostForBlog.module.scss';
 import { X_ICON, COPY_ICON, COPYPARAG_ICON } from './assets/index.jsx';
 
 
+
 export const SavedPostForBlog = ({userId, type}) => {
+
+const [searchParams] = useSearchParams();
+const dashboard = searchParams.get('dashboard'); 
 
 const [savedPosts, setSavedPosts] = useState([])
 const [posts, setPosts] = useState()
 const [deletedPostId, setDeletedPostId] = useState()
+const[isLoader, setIsLoader] = useState(true)
 
 const handleResponse = (data)=>{
 	const posts = data.map(item=>item.response)
@@ -19,11 +26,12 @@ const handleResponse = (data)=>{
 
 useEffect(()=>{
 	axios
-	.post(`http://localhost:8000/chat/getsavedresults`, { userId, category:"postforblog", type })
+	.post(`http://localhost:8000/chat/getsavedresults`, { userId, category: dashboard, type })
 	.then((res) => {
 		console.log(res.data);
 		setSavedPosts(res.data)
 		handleResponse(res.data)
+		setIsLoader(false)
 	})
 	.catch((err) => {
 	console.error(err);
@@ -74,6 +82,8 @@ const delParagraph = (id) => {
 
 				<div className={styles.result_form_textarea}>
 				{
+					isLoader ? 
+					<Loader width={520} height={300} block_width={500} block_height={80}/> :
 					savedPosts.map((post, index) => (
 						
 						<div key={"post_"+index} style={{display:'flex'}} >

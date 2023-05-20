@@ -28,7 +28,7 @@ export const TEMPLATES = [
   {
     icon: ICONS.email.path,
     alter: ICONS.email.alter,
-    title: 'Электронная почта для продвижения мероприятия',
+    title: 'Электронное письмо для продвижения мероприятия',
     text: 'Предстоит мероприятие? Расскажите об этом своим потенциальным клиентам по электронной почте!',
     link: 'email_newsletters',
     template: 'event_prom_email',
@@ -37,7 +37,7 @@ export const TEMPLATES = [
     icon: ICONS.bag.path,
     alter: ICONS.bag.alter,
     title: 'Выделите приемущества продукта или услуги',
-    text: 'Расскажите своим клиентам, как ваш продукт может им помочь!',
+    text: 'Расскажите своим клиентам, как ваш продукт или услуга может им помочь!',
     link: 'email_newsletters',
     template: 'highlight_product',
   },

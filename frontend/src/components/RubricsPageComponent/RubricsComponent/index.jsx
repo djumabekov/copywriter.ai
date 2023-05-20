@@ -6,6 +6,7 @@ import { selectDashboards, setCurrentDashboard} from "../../../redux/slices/ui";
 
 export const Rubrics = () => {
 	const {RUBRICS, PRO } = useSelector(selectDashboards);
+	
 	const dispatch = useDispatch();
 	
 	const setDashboard = (title, descr) => {

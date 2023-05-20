@@ -18,17 +18,28 @@
 }
 
 .free_consult_btn{
+	transition: 1s;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 13px 0px;
 	gap: 9px;
-
 	width: 352px;
 	height: 47px;
-
 	background: #FFFFFF;
 	border: 2px solid #1723C7;
+	cursor: pointer;
+	color: #1723C7;
+}
+
+.free_consult_btn:hover {
+	transition: 1s;
+    background: #1723C7;
+	color: #FFFFFF;
+
+	.free_consult_btn_img{
+		filter: invert(50%);
+	}
 }
 
 .free_consult_btn_name{
@@ -41,7 +52,7 @@
 	line-height: 25px;
 	display: flex;
 	align-items: center;
-	color: #1723C7;
+	
 }
 
 .free_consult_btn_square{
@@ -53,6 +64,7 @@
 }
 
 .free_consult_btn_img{
+  transition: 1s;
   height: 25px;
   width: 25px;
   background-size: cover;
@@ -60,12 +72,15 @@
   border: none;
 }
 
+
+
 .enter_btn_square{
 	width: 25px;
 	height: 25px;
 }
 
 .enter_btn{
+	transition: 1s;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -75,7 +90,21 @@
 	width: 165px;
 	height: 47px;
 	background: #1723C7;
+	color: #FFFFFF;
+	border: none;
 	margin-left: 30px;
+	cursor: pointer;
+}
+
+.enter_btn:hover{
+	transition: 1s;
+	background: #FFFFFF;
+	color: #1723C7;
+	border: 1px solid #1723C7;
+
+	.enter_btn_btn_img{
+		filter: invert(50%);
+	}
 }
 
 .enter_btn_name{
@@ -87,11 +116,10 @@
 	display: flex;
 	align-items: center;
 	text-align: center;
-	
-	color: #FFFFFF;
 }
 
 .enter_btn_btn_img{
+	transition: 1s;
     height: 25px;
     width: 25px;
     background-size: cover;
@@ -106,6 +134,12 @@
 	flex-grow: 0;
 	background-size: cover;
 	background-image: url(./assets/images/menu.png);
+	cursor: pointer;
+}
+
+.show_menu_btn:hover{
+	transition: 1s;
+	filter: invert(50%);
 
 }
 

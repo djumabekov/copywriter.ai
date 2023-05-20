@@ -1,174 +1,50 @@
 import { Link } from "react-router-dom";
+import { useSelector} from 'react-redux';
+import { selectDashboards} from "../../../../redux/slices/ui";
+import styles from './Rubrics.module.scss';
 
 export const Rubrics = () => {
-  return (
-    <section className="rubrics">
-      <div className="text">Рубрики</div>
-      <div className="grid">
-        <div className="grid-block">
-          <div className="rubric-name">
-            <div className="rubric-title">Пост для блога</div>
-            <div className="edit-img"></div>
-          </div>
-          <div className="descr">
-            Создавай вовлекающий контент для своих соцсетей за считанные минуты
-          </div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="grid-block">
-          <div className="rubric-name">
-            <div className="rubric-title">Реклама в соцсетях</div>
-            <div className="smile-img"></div>
-          </div>
-          <div className="descr">
-            Рекламные объявления в социальных сетях, подходят для таргетированной рекламы
-          </div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="grid-block">
-          <div className="rubric-name">
-            <div className="rubric-title">Сторителлинг</div>
-            <div className="sms-img"></div>
-          </div>
-          <div className="descr">
-            Mощный инструмент для продвижения вашего бренда и привлечения новых клиентов
-          </div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="grid-block">
-          <div className="rubric-name">
-            <div className="rubric-title">Email-рассылки</div>
-            <div className="email-img"></div>
-          </div>
-          <div className="descr">Краткие и информативные тексты с призывом к действию</div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="grid-block">
-          <div className="rubric-name">
-            <div className="rubric-title">Текст для лендинга</div>
-            <div className="list-img"></div>
-          </div>
-          <div className="descr">
-            Максимально продающие тексты для веб-страниц, которые используются для продвижения
-            конкретной продукции или услуги
-          </div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="grid-block bg-blue ">
-          <div className="rubric-name ">
-            <div className="rubric-title fg-white">SEO-тесты</div>
-            <div className="geo-img"></div>
-          </div>
-          <div className="descr fg-white">
-            Оптимизиуруй сайт для поисковых систем и привлеки свежий трафик
-          </div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name fg-white">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="grid-block">
-          <div className="rubric-name">
-            <div className="rubric-title">Описание продукта</div>
-            <div className="bag-img"></div>
-          </div>
-          <div className="descr">
-            Создай описание продукта, которое попадет в цель и обеспечит высокую конверсию
-          </div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="grid-block">
-          <div className="rubric-name">
-            <div className="rubric-title">Брейншторм</div>
-            <div className="star-img"></div>
-          </div>
-          <div className="descr">
-            Если у тебя нет идей для названий продукта, стартапа или просто не знаешь, о чем
-            написать пост
-          </div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="grid-block">
-          <div className="rubric-name">
-            <div className="rubric-title">Позиционирование</div>
-            <div className="user-img"></div>
-          </div>
-          <div className="descr">
-            Определи уникальность своего продукта или услуги и отстройся от конкурентов
-          </div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="grid-block">
-          <div className="rubric-name">
-            <div className="rubric-title">Анализ ЦА</div>
-            <div className="smile-img"></div>
-          </div>
-          <div className="descr">
-            Узнай, кому нужен твой продукт, найди истинные боли и потребности каждого сегмента ЦА
-          </div>
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
-              Попробовать бесплатно
-            </Link>
-            <div className="arrow-up-blue-img"></div>
-          </div>
-        </div>
-        <div className="doubleblock">
-          <div className="title">
-            <div className="pro-img"></div>
-            Freestyle
-          </div>
-          <div className="descr">Cпроси меня что угодно</div>
+  const {RUBRICS, PRO } = useSelector(selectDashboards);
 
-          <div className="link">
-            <Link to="/rubrics/post-for-blog" className="link-name">
+  return (
+    <section className={styles.rubrics}>
+      <div className={styles.text}>Рубрики</div>
+      <div className={styles.grid}>
+
+        {
+          RUBRICS.map((rubric, index)=>(
+          <div key={"rubric_"+index} className={styles.grid_block}>
+          <div className={styles.rubric_name}>
+            <div className={styles.rubric_title}>{rubric.title}</div>
+            <img src={rubric.icon} className={styles.edit_img} alt={rubric.alt}/>
+          </div>
+          <div className={styles.descr}>
+          {rubric.text}
+          </div>
+          <div className={styles.link}>
+            <Link to={`rubrics/project?dashboard=${rubric.link}&template=freestyle`} className={styles.link_name}>
+              Попробовать бесплатно
+            </Link>
+            <div className={styles.arrow_up_blue_img}></div>
+          </div>
+        </div>
+        ))
+        }
+        
+        <div className={styles.doubleblock}>
+          <div className={styles.title}>
+            <div className={styles.pro_img}></div>
+            {PRO.title}
+          </div>
+          <div className={styles.descr}>{PRO.text}</div>
+
+          <div className={styles.link}>
+            <Link to={`rubrics/project?dashboard=${PRO.link}&template=freestyle`} className={styles.link_name}>
               Попробовать
             </Link>
-            <div className="arrow-left-white-img"></div>
+            <div className={styles.arrow_left_white_img}></div>
           </div>
-        </div>
+        </div> 
       </div>
     </section>
   );

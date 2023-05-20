@@ -22,13 +22,19 @@
 }
 
 .menu_close_btn{
+	transition: 1s;
 	width: 26px;
 	height: 26px;
 	background-size: cover;
 	margin: 10% 0 0 70%;
+	cursor: pointer;
     // background-image: url(../public/assets/element-img/closeX.png);
 }
 
+.menu_close_btn:hover{
+	transition: 1s;
+	filter: invert(50%);
+}
 .menu_links{
 	display: flex;
 	flex-direction: column;
@@ -38,10 +44,10 @@
 	width: 165.03px;
 	height: 313.88px;
 	margin: 10% 0 0 10%;
-
 }
 
 .menu_link{
+	transition: 1s;
 	font-family: 'Helvetica';
 	font-style: normal;
 	font-weight: 400;
@@ -50,6 +56,13 @@
 	color: #FFFFFF;
 	margin-top: 20%;
 	text-decoration: none;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.menu_link:hover{
+	transition: 1s;
+	color: gray;
+	border-bottom: 1px solid gray;
 }
 
 .menu_langs_btn{
@@ -62,7 +75,17 @@
 	height: 25px;
 	background: #FFFFFF;
 	border: 2.10227px solid #1723C7;
+	color: #1723C7;
 	margin: 10% 0 0 10%;
+	cursor: pointer;
+	transition: 1s;
+}
+
+.menu_langs_btn:hover{
+	transition: 1s;
+    background: #1723C7;
+	color: #FFFFFF;
+	border: 1px solid #FFFFFF;
 }
 
 .menu_langs_btn_text{
@@ -74,7 +97,6 @@
 	display: flex;
 	align-items: center;
 	text-align: center;
-	color: #1723C7;
 }
 
 .menu_btn{
@@ -84,7 +106,19 @@
 	align-items: center;
 	padding: 13px 21px;
 	background: #FFFFFF;
+	color: #1723C7;
+	cursor: pointer;
+	transition: 1s;
+}
 
+.menu_btn:hover{
+	transition: 1s;
+    background: #1723C7;
+	color: #FFFFFF;
+	border: 1px solid #FFFFFF;
+	.menu_btn_img{
+		filter: invert(50%);
+	}
 }
 
 .menu_btn_name{
@@ -96,7 +130,7 @@
 	display: flex;
 	align-items: center;
 	text-align: center;
-	color: #1723C7;
+	
 }
 
 .menu_btn_square{
@@ -105,11 +139,13 @@
 }
 
 .menu_btn_img{
+	transition: 1s;
     height: 25px;
     width: 25px;
     background-size: cover;
     // background-image: url(../public/assets/element-img/arrowUpBlue.png);
 	border: none;
+
 }
 
 .menu_enter_btn_width{

@@ -1,0 +1,190 @@
+
+.rubrics{
+	display: flex;
+	flex-direction: column;
+	margin-top: 100px;
+	width: 100%;
+}
+
+.rubrics .text{
+	width: 100%;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 62.8864px;
+	line-height: 129.99%;
+	color: #1723C7;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.grid{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	row-gap: 10px;
+}
+
+.grid_block{
+	display: flex;
+	flex-direction: column;
+	padding: 30px;
+
+	width: 475px;
+	height: 300px;
+	background: #FFFFFF;
+	border: 0.952909px solid #1723C7;
+}
+
+.grid .bg_blue{
+	background: #1723C7;
+}
+
+.grid .fg_white{
+	color: #FFFFFF;
+}
+
+.rubric_name{
+	display: flex;
+	flex-direction: row;
+	align-content: space-between;
+	justify-content: space-between;
+	padding: 0px;
+	gap: 10px;
+}
+
+.rubric_title{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20.964px;
+	line-height: 129.99%;
+	text-align: center;
+	text-transform: uppercase;
+	color: #1723C7;
+}
+
+.edit_img{
+	width: 24px;
+	height: 24px;
+	color: #1723C7;
+	background-size: cover;
+}
+
+.grid .descr{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 19.0582px;
+	line-height: 22px;
+	margin-top: 5%;
+}
+
+.link{
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 12.3878px 0px;
+	margin-top: 5%;
+}
+
+.link_name{
+	display: flex;
+	align-items: start;
+	text-align: start;
+	width: 260.09px;
+	height: 24px;
+	width: 240px;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20.6833px;
+	line-height: 24px;
+	color: #1723C7;
+}
+
+
+.link .arrow_up_blue_img{
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+    background-image: url(./assets/image/arrowUpBlue.png);
+	border: none;
+	margin: auto 10px 10px 10px;
+}
+
+.doubleblock{
+	display: flex;
+
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 30px;
+	grid-column-start: 2;
+	grid-column-end: 4;
+	background: #1723C7;
+	background-size: cover;
+    background-image: url(./assets/image/silverRing.png);
+	border: none;
+}
+
+.doubleblock .link{
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: flex-start;
+	padding: 12.3878px 0px;
+	gap: 2.86px;
+}
+
+.doubleblock .link .arrow_left_white_img{
+	height: 25px;
+    width: 25px;
+    background-size: cover;
+    background-image: url(./assets/image/arrowLeftWhite.png);
+	border: none;
+	margin: auto 10px 10px 10px;
+}
+
+.doubleblock .link_name{
+	width: 130px;
+	display: flex;
+	align-items: start;
+	text-align: start;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20.6833px;
+	line-height: 24px;
+	color: #FFFFFF;
+}
+
+.doubleblock .title{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20.964px;
+	line-height: 129.99%;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+
+.doubleblock .pro_img{
+	display: flex;
+	align-items: end;
+	height: 25px;
+    width: 60px;
+	background-size: cover;
+	border: none;
+	margin: 0;
+}
+
+.doubleblock .descr{
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 34px;
+
+	color: #FFFFFF;
+}

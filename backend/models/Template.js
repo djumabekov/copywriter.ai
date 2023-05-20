@@ -7,11 +7,11 @@ const templateSchema = new mongoose.Schema({
   },
   theme: {
     type: String,
-    required: true,
+    required: false,
   },
   company: {
     type: String,
-    required: true,
+    required: false,
   },
   context: {
     type: Array,
@@ -19,7 +19,7 @@ const templateSchema = new mongoose.Schema({
   },
   target: {
     type: String,
-    required: true,
+    required: false,
   },
   tone: {
     type: String,
@@ -29,6 +29,11 @@ const templateSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  dashboard: {
+    type: String,
+    required: true,
+  },
+  userId: { type: mongoose.SchemaTypes.ObjectId, ref: 'User' },
   createDate: { type: Date, default: () => new Date(), immutable: true },
 });
 

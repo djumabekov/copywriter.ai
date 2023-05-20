@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import styles from './Templates.module.scss';
 
 import { useSelector, useDispatch} from 'react-redux';
-import { selectTemplates, setCurrentDashboard} from "../../../redux/slices/ui";
+import {selectTemplates, setCurrentDashboard} from "../../../redux/slices/ui";
 
 export const Templates = () => {
 
-	const TEMPLATES = useSelector(selectTemplates);
+	const  TEMPLATES  = useSelector(selectTemplates);
 	const dispatch = useDispatch();
 	
 	const setDashboard = (title, descr) => {

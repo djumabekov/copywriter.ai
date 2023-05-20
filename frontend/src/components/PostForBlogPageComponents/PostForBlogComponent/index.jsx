@@ -2,13 +2,13 @@
 import { useState, createRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from '../../../axios.js';
-import { SpinLoader } from '../LoaderComponent';
+import Loader from '../LoaderComponent';
 import styles from './PostForBlog.module.scss';
 import { HISTORY_ICON, SAVED_ICON, SAVE_ICON, X_ICON, SAVEALL_ICON, COPY_ICON, COPYPARAG_ICON, POST_ICON } from './assets/index.jsx';
 
 import { useEffect } from "react";
-import { useDispatch, useSelector} from 'react-redux';
-import { fetchAuthMe, selectIsAuth, selectUserData } from "../../../redux/slices/auth";
+import { useDispatch,} from 'react-redux';
+import { fetchAuthMe } from "../../../redux/slices/auth";
 import { SavedPostForBlog } from '../SavedPostForBlogComponent/index.jsx';
 
 
@@ -17,13 +17,15 @@ export const PostForBlog = () => {
 	const [userId, setUserId] = useState(null);
 
 	const dispatch = useDispatch();
-	 useEffect(() =>  {
+
+	useEffect(() => {
 		dispatch(fetchAuthMe()).then((data=>{
 			console.log("fetchAuthMe", data.payload.userData.fullName)
 			setUserId(data.payload.userData._id)
 		}));
+		getTemplate()
 	}, []);
-	
+
 	// const userData = useSelector(selectUserData);
 	// console.log("user", userData)
 
@@ -42,11 +44,16 @@ export const PostForBlog = () => {
 	const radioMakelongerRef = createRef();
 	const radioMakeshorterRef = createRef();
 
-	const themeRef = createRef();
-	const companyRef = createRef();
-	const contextRef = createRef();
-	const purposeRef = createRef();
+	// const themeRef = createRef();
+	// const companyRef = createRef();
+	// const contextRef = createRef();
+	// const purposeRef = createRef();
 	const toneRef = createRef();
+
+	const [theme, setTheme] = useState('');
+	const [company, setCompany] = useState('');
+	const [context, setContext] = useState('');
+	const [purpose, setPurpose] = useState('');
 
 
 	const[isLoader, setIsLoader] = useState(false)
@@ -59,56 +66,66 @@ export const PostForBlog = () => {
 
 	const [searchParams] = useSearchParams();
 	const templateName = searchParams.get('template'); 
+	const dashboard = searchParams.get('dashboard'); 
 
-	useEffect(()=>{
-		getTemplate()
-	},[])
-
-	const getTemplate =()=>{
+	const getTemplate = ()=>{
 		axios
 			.post(`http://localhost:8000/chat/gettemplate`, {template:templateName})
 			.then((res) => {
-			
 				setTemplate(res.data)
-				return res.data
-			}).then((data)=>{
-				if(data){
-					fillFieldsFromTemplate(data)
-				}
+				fillFieldsFromTemplate(res.data)
+			})
+			.catch((err) => {
+			console.error(err);
+			});
+	}
+	
+	
+	const saveTemplate =() =>{
+		axios
+			.post(`http://localhost:8000/chat/savetemplate`, {
+				title: template.title,
+				theme,
+				company,
+				context: context.split(/(?:\r?\n)+/),
+				target: purpose,
+				template:templateName,
+				tone: toneRef.current.value,
+				dashboard,
+				userId 
+				})
+			.then((res) => {
+				console.log(res.data);
 			})
 			.catch((err) => {
 			console.error(err);
 			});
 	}
 
-
-	
 	const createMessage = () => {
 		return `
-		Напиши
 		${template.title} 
-		${themeRef.current.value} 
-		"${companyRef.current.value}"
-		${contextRef.current.value} 
-		${purposeRef.current.value} 
+		по теме ${theme} 
+		для компании "${company}"
+		в контексте ${context} 
+		с целью ${purpose} 
 		в ${toneRef.current.value} тональности` 
 	}
 
 	const fillFieldsFromTemplate = (data) => {
 		console.log("data.context.join('\n')", data.context.join('\n\n'))
-		themeRef.current.value=data.theme
-		companyRef.current.value=data.company
-		contextRef.current.value=data.context.join('\n\n')
-		purposeRef.current.value=data.target
-	
-		
+		console.log("themeRef.current.value", theme)
+		setTheme(data.theme)
+		setCompany(data.company)
+		setContext(data.context.join('\n\n'))
+		setPurpose(data.target)
 	}
 
 	const clearAllFields = () => {
-		themeRef.current.value=''
-		companyRef.current.value=''
-		contextRef.current.value=''
-		purposeRef.current.value=''
+		setTheme('')
+		setCompany('')
+		setContext('')
+		setPurpose('')
 
 		
 		additionalTextInputRef.current.value=''
@@ -147,7 +164,7 @@ export const PostForBlog = () => {
 		const post = response.trim()
 		if(response.length > 0){
 			axios
-			.post(`http://localhost:8000/chat/saveresult`, { category:"postforblog", type:"post",response: post, userId })
+			.post(`http://localhost:8000/chat/saveresult`, { category: dashboard, type:"full",response: post, userId })
 			.then((res) => {
 				console.log(res.data);
 			})
@@ -186,7 +203,7 @@ export const PostForBlog = () => {
 	const saveParagraph = (paragraph) => {
 		if(response.length > 0){
 			axios
-			.post(`http://localhost:8000/chat/saveresult`, { category:"postforblog", type:"fragment", response: paragraph, userId })
+			.post(`http://localhost:8000/chat/saveresult`, { category:dashboard, type:"fragment", response: paragraph, userId })
 			.then((res) => {
 				console.log(res.data);
 			})
@@ -195,8 +212,6 @@ export const PostForBlog = () => {
 			});
 		}
 	}
-
-	
 
 
 	const generationResult = (param) => {
@@ -249,7 +264,7 @@ export const PostForBlog = () => {
 							<span className={styles.input_block_label_text}>Тема</span>
 							<span className={styles.input_block_label_limit}>14/80</span>
 						</div>
-						<input ref={themeRef} type='text' className={styles.input_text} placeholder='помидоры'/>
+						<input onChange={(e)=>setTheme(e.target.value)} value={theme} type='text' className={styles.input_text} placeholder='[например, электронное письмо]'/>
 					</div>
 				</div>
 				<div className={styles.input_list}>
@@ -258,7 +273,7 @@ export const PostForBlog = () => {
 							<span className={styles.input_block_label_text}>Имя компании</span>
 							<span className={styles.input_block_label_limit}>14/80</span>
 						</div>
-						<input ref={companyRef} type='text' className={styles.input_text} placeholder='Овощи и Фрукты'/>
+						<input onChange={(e)=>setCompany(e.target.value)} value={company} type='text' className={styles.input_text} placeholder='[например, ТОО "Моя компания"]'/>
 					</div>
 				</div>
 				<div className={styles.input_list}>
@@ -267,7 +282,7 @@ export const PostForBlog = () => {
 							<span className={styles.input_block_label_text}>Контекст</span>
 							<span className={styles.input_block_label_limit}>14/80</span>
 						</div>
-						<textarea rows="10" cols="50" ref={contextRef} type='text' className={styles.input_textarea} placeholder='свежие, вкусные, сочные, недорого, с доставкой'/>
+						<textarea onChange={(e)=>setContext(e.target.value)} rows="10" cols="50" value={context} type='text' className={styles.input_textarea} placeholder='[например, о пользе продукта, причинах участия, деталях события]'/>
 					</div>
 				</div>
 				<div className={styles.input_list}>
@@ -276,7 +291,7 @@ export const PostForBlog = () => {
 							<span className={styles.input_block_label_text}>Цель</span>
 							<span className={styles.input_block_label_limit}>14/80</span>
 						</div>
-						<input ref={purposeRef} type='text' className={styles.input_text} placeholder='рекламы и продажи'/>
+						<input onChange={(e)=>setPurpose(e.target.value)} value={purpose} type='text' className={styles.input_text} placeholder='[например, продвижение продукта]'/>
 					</div>
 				</div>
 				<div className={styles.input_list}>
@@ -299,6 +314,7 @@ export const PostForBlog = () => {
 			</div>
 
 			<div className={styles.control_bar}>
+				<input onClick={saveTemplate} type='button' className={styles.generate_btn} value='Сохранить шаблон'/>
 				<input onClick={clearAllFields} type='button' className={styles.clear_btn} value='Сбросить все'/>
 				<input onClick={()=>generationResult('generate')} type='button' className={styles.generate_btn} value='Генерация'/>
 			</div>
@@ -311,13 +327,13 @@ export const PostForBlog = () => {
 						<img src={POST_ICON} width='24px' className={styles.post_img} alt='Пост'/>
 						<div className="result-form-bar-history-title">Пост</div>
 					</div>
-					<div onClick={()=>showSavedResults('post')} className={styles.result_form_bar_history_btn+" "+styles.btn_cursor_pointer}>
+					<div onClick={()=>showSavedResults('full')} className={styles.result_form_bar_history_btn+" "+styles.btn_cursor_pointer}>
 						<img src={HISTORY_ICON} width='24px' className={styles.history_img} alt='Сохраненные посты'/>
 						<div className="result-form-bar-history-title">Сохраненные посты</div>
 					</div>
-					<div onClick={()=>showSavedResults('fragment')} className={styles.result_form_bar_saved_btn+" "+styles.btn_cursor_pointer}>
+					<div onClick={()=>showSavedResults('fragment')} className={styles.result_form_bar_history_btn+" "+styles.btn_cursor_pointer}>
 						<img src={SAVED_ICON} width='24px'className={styles.saved_img} alt='Сохраненные фрагменты'/>
-						<div className="result-form-bar-saved-title">Сохраненные фрагменты</div>
+						<div className="result-form-bar-history-title">Сохраненные фрагменты</div>
 					</div>
 				</div>
 			</div>
@@ -337,14 +353,12 @@ export const PostForBlog = () => {
 						<div className="result-form-bar-history-title">Скопировать пост</div>
 					</div>
 				</div>
-			{/* <input onClick={saveResult} type='button' className={styles.save_btn} value='Сохранить все'/> */}
-			{/* {
-				isLoader ? 
-				<SpinLoader/> :
-				<textarea value={response} className={styles.result_form_textarea} rows="20" cols="75" readOnly placeholder='Текст о том, что тут будет происходить магия генерации'/>
-			} */}
+			
+			
 				<div className={styles.result_form_textarea}>
 				{
+						isLoader ? 
+						<Loader width={620} height={300} block_width={600} block_height={80}/> :
 					splitedResponse.map((paragraph, index) => (
 						
 						<div key={"paragraph_"+index} style={{display:'flex'}} >
@@ -362,11 +376,9 @@ export const PostForBlog = () => {
 				</div>
 				</div>
 				<div className={styles.control_btn_elements}>
-					<input ref={checkBoxTranslateRef} value=' переведи текст на английский' type='checkbox' id="translate" name="translate" className={styles.translate_btn}/> <label htmlFor="translate">Перевести</label>
+					<input ref={checkBoxTranslateRef} value=' переведи текст на английский' type='checkbox' id="translate" name="translate" className={styles.translate_btn}/> <label htmlFor="translate">Перевести на англ.</label>
 					<input ref={checkBoxImproveRef} value=' улучши этот текст' type='checkbox' id="improve" name="improve" className={styles.improve_btn}/><label htmlFor="improve">Улучшить</label>
-					{/* <input ref={checkBoxMakelongerRef} value=' добавь больше слов в этот текст' type='checkbox' id="makelonger" name="makelonger" className={styles.makelonger_btn}/><label htmlFor="makelonger">Больше</label>
-					<input ref={checkBoxMakeshorterRef} value=' сократи немного слов из этого текста' type='checkbox' id="makeshorter" name="makeshorter" className={styles.makeshorter_btn}/><label htmlFor="makeshorter">Короче</label>
-				 */}
+				
 					<fieldset className={styles.control_element} id="group1">
 						<input ref={radioMakelongerRef} value=' добавь больше слов в этот текст'  type="radio" id="makelonger" name="more_or_less_text"/><label htmlFor="makelonger">Больше</label>
 						<input ref={radioMakeshorterRef} value=' сократи немного слов из этого текста' type="radio" id="makeshorter" name="more_or_less_text"/><label htmlFor="makeshorter">Меньше</label>
@@ -379,7 +391,7 @@ export const PostForBlog = () => {
 					<span className={styles.input_block_label_text}>Задать дополнительные требования к результату</span>
 					<span className={styles.input_block_label_limit}>14/80</span>
 				</div>
-				<input ref={additionalTextInputRef} type='text' className={styles.input_text} placeholder='А теперь добавь туда немного романтики...'/>
+				<input ref={additionalTextInputRef} type='text' className={styles.input_text} placeholder='[например, сделай текст более запоминающимся]'/>
 				<div className={styles.control_bar}>
 					<input onClick={clearAdditionalFields} type='button' className={styles.clear_btn} value='Очистить'/>
 					<input disabled={!response} onClick={()=>generationResult('regenerate')} type='button' className={styles.generate_btn} value='Регенерация'/>

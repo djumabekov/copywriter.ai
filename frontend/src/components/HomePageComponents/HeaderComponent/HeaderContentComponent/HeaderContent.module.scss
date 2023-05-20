@@ -1,0 +1,77 @@
+
+.header{
+	display: flex;
+	flex-direction: column;
+}
+
+.image_block{
+	margin: 100px auto;
+	width: 1376px;
+	height: 543px;
+	background: #FFFFFF;
+	mix-blend-mode: normal;
+	border-radius: 5px;
+	background-size: cover;
+    background-image: url(../assets/images/headerImg.png);
+}
+
+
+.header_content{
+	display: flex;
+	align-items: flex-end;
+	margin-top: 100px;
+	width: 1440px;
+}
+
+
+.slogan{
+	width: 969.36px;
+}
+
+.slogan .text{
+	display: flex;
+	flex-wrap: nowrap;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 62.8864px;
+	line-height: 129.99%;
+	text-transform: uppercase;
+	color: #1723C7;
+}
+
+.slogan .right_row_img{
+	width: 30px;
+	height: 30px;
+	flex-grow: 0;
+	background-size: cover;
+    background-image: url(../assets/images/arrowRightBlue.png);
+	margin: auto 30px 30px 0px;
+}
+
+
+.descr{
+	display: flex;
+	flex-direction: column;
+	font-family: 'Helvetica';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 221.49%;
+	color: #1723C7;
+}
+
+.text{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.arrow_up_blue_img{
+    height: 25px;
+    width: 25px;
+    background-size: cover;
+    background-image: url(../assets/images/arrowUpBlue.png);
+	border: none;
+	margin: auto 10px 10px 0px;
+}
